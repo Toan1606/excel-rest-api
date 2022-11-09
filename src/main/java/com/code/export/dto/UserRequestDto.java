@@ -10,21 +10,21 @@ import java.io.Serializable;
 @Data
 public class UserRequestDto implements Serializable {
 
-    @Email
+    @Email(message = "It has be an email")
     private String email;
 
-    @NotEmpty
+    @NotEmpty(message = "Password must have length between 8 and 16 characters")
     @Length(min = 8, max = 16)
     private String password;
 
-    @NotEmpty
+    @NotEmpty(message = "Firstname can not be empty")
     private String firstName;
 
     private String middleName;
 
-    @NotEmpty
+    @NotEmpty(message = "Firstname can not be empty")
     private String lastName;
 
-    @NotNull
+    @NotNull(message = "User must have status")
     private boolean enabled;
 }

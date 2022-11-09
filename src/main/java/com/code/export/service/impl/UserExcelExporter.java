@@ -113,6 +113,7 @@ public class UserExcelExporter implements IUserExcelExporter {
 
     @Override
     public void writeHeader() {
+
         XSSFRow headerRow = sheet.createRow(rowCount);
         CellStyle cellStyle = generateCellStyleHeader();
         
@@ -123,6 +124,14 @@ public class UserExcelExporter implements IUserExcelExporter {
         createCell(headerRow, 4, "Last Name", cellStyle);
         createCell(headerRow, 5, "Role", cellStyle);
         createCell(headerRow, 6, "Enable", cellStyle);
+
+        sheet.autoSizeColumn(0);
+        sheet.autoSizeColumn(1);
+        sheet.autoSizeColumn(2);
+        sheet.autoSizeColumn(3);
+        sheet.autoSizeColumn(4);
+        sheet.autoSizeColumn(5);
+        sheet.autoSizeColumn(6);
     }
 
     @Override

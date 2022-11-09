@@ -8,5 +8,7 @@ import lombok.Data;
 public class ErrorDTO {
     private String errorCode;
 
+    private String fieldName;
+
     private String errorMessage;
 }

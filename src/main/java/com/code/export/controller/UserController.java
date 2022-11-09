@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -41,9 +42,14 @@ public class UserController {
         return ResponseEntity.ok("");
     }
 
+    /**
+     * This method add new user to database
+     * @param userRequestDto
+     * @return user after saved in database
+     */
     @PostMapping("/add")
-    public ResponseEntity<User> addUser(@RequestBody UserRequestDto userRequestDto) {
-        
-        return ResponseEntity.ok(new User.Builder().build());
+    public ResponseEntity<User> addUser(@Valid @RequestBody UserRequestDto userRequestDto) {
+        User user = userServices.saveUser(userRequestDto);
+        return ResponseEntity.ok(user);
     }
 }

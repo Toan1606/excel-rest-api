@@ -142,33 +142,33 @@ public class User {
 
         private boolean enabled;
 
-        public Builder email() {
-            this.email = email;
+        public Builder email(@Email(message = "It has be an email") String email) {
+            this.email = this.email;
             return this;
         }
 
-        public Builder password() {
-            this.password = password;
+        public Builder password(@NotEmpty(message = "Password must have length between 8 and 16 characters") @Length(min = 8, max = 16) String password) {
+            this.password = this.password;
             return this;
         }
 
-        public Builder firstName() {
-            this.firstName = firstName;
+        public Builder firstName(@NotEmpty(message = "Firstname can not be empty") String firstName) {
+            this.firstName = this.firstName;
             return this;
         }
 
-        public Builder middleName() {
-            this.middleName = middleName;
+        public Builder middleName(String middleName) {
+            this.middleName = this.middleName;
             return this;
         }
 
-        public Builder lastName() {
-            this.lastName = lastName;
+        public Builder lastName(@NotEmpty(message = "Firstname can not be empty") String lastName) {
+            this.lastName = this.lastName;
             return this;
         }
 
-        public Builder enabled() {
-            this.enabled = enabled;
+        public Builder enabled(@NotNull(message = "User must have status") boolean enabled) {
+            this.enabled = this.enabled;
             return this;
         }
 
